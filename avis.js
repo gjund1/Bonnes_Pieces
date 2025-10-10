@@ -1,3 +1,4 @@
+/* global Chart */
 export function ajoutListenersAvis() {
 
 	const piecesElements = document.querySelectorAll(".fiches article button");
@@ -27,11 +28,11 @@ export function afficherAvis(pieceElement, avis){
 
 export function ajoutListenerEnvoyerAvis() {
 	const formulaireAvis = document.querySelector(".formulaire-avis");
-	formulaireAvis.addEventListener('submit', function (event) {
+	formulaireAvis.addEventListener("submit", function (event) {
 		event.preventDefault();
 		// Création de l’objet du nouvel avis.
 		const avis = {
-			pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
+			pieceId: parseInt(event.target.querySelector("[name=piece-id]").value),
 			utilisateur: event.target.querySelector("[name=utilisateur]").value,
 			commentaire: event.target.querySelector("[name=commentaire]").value,
 			nbEtoiles: parseInt(event.target.querySelector("[name=nbEtoiles]").value)
@@ -76,7 +77,7 @@ export async function afficherGraphiqueAvis() {
 		},
 	};
 	// Rendu du graphique dans l'élément canvas
-	const graphiqueAvis = new Chart(
+	new Chart(
 		document.querySelector("#graphique-avis"),
 		config,
 	);
